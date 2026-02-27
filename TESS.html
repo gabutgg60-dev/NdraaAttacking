@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚠️ NDRAA ATTACKING - SYSTEM LOCKDOWN ⚠️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        body {
+            background: #4a0000;
+            font-family: 'Courier New', monospace;
+            color: white;
+            text-align: center;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: none;
+        }
+        .lockdown-container {
+            background: rgba(0,0,0,0.9);
+            padding: 40px;
+            border-radius: 15px;
+            border: 3px solid #ff8800;
+            box-shadow: 0 0 80px rgba(255,68,0,0.8);
+            max-width: 700px;
+            width: 90%;
+            animation: pulse 1.5s infinite, shake 5s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 30px rgba(255,68,0,0.4); }
+            50% { box-shadow: 0 0 100px rgba(255,0,0,1); }
+            100% { box-shadow: 0 0 30px rgba(255,68,0,0.4); }
+        }
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            text-shadow: 4px 4px 0px #662200, 0 0 20px #ffaa00;
+            color: #ffaa00;
+            animation: glitch 1s infinite;
+        }
+        @keyframes glitch {
+            2%,64% { transform: skew(2deg, 1deg); text-shadow: -3px 0 red, 3px 0 blue; }
+            4%,60% { transform: skew(0deg); text-shadow: 2px 0 #ffaa00, -2px 0 cyan; }
+        }
+        .warning-icon {
+            font-size: 6rem;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px #ff3300);
+            animation: spin 4s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .message {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            background: #330000;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 8px solid #ff6600;
+            font-weight: bold;
+        }
+        .message span {
+            color: #ffaa00;
+            background: black;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .unlock-box {
+            background: #1a0000;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px dashed #ff6600;
+        }
+        .unlock-box p {
+            font-size: 1.8rem;
+            color: #ffaa00;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        #unlockInput {
+            padding: 18px;
+            width: 80%;
+            font-size: 1.5rem;
+            text-align: center;
+            background: black;
+            color: #ffaa00;
+            border: 3px solid #ff6600;
+            border-radius: 50px;
+            outline: none;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
+        #unlockInput:focus {
+            border-color: #ff3300;
+            box-shadow: 0 0 30px #ff3300;
+        }
+        .hint {
+            margin-top: 30px;
+            color: #ccc;
+            font-size: 1rem;
+        }
+        .hint span {
+            color: #ffaa00;
+            background: #220000;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            border: 1px solid #ff6600;
+        }
+        .status-message {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #ff8888;
+            min-height: 30px;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 20px;
+            color: #440000;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="lockdown-container">
+        <div class="warning-icon">💢👾💢</div>
+        <h1>NDRAA ATTACKING</h1>
+        <div class="message">
+            ⚠️ <span>SISTEM ANDA TELAH DISERANG NDRAA</span> ⚠️<br><br>
+            🔒 SEMUA FUNGSI INPUT DI-LOCK 🔒<br>
+            🔥 DONGOK FINAL BOSS 🤩<br>
+            🎯 HANYA SANDI KHUSUS YANG BISA BEBASKAN
+        </div>
+        <div class="unlock-box">
+            <p>🔑 MASUKKAN SANDI UNLOCK 🔑</p>
+            <input type="password" id="unlockInput" placeholder="*****|*****" autofocus>
+            <div class="status-message" id="statusMsg"></div>
+        </div>
+        <div class="hint">
+            🔐 SANDI RAHASIA: <span>#Ndra</span>
+        </div>
+        <div class="footer">
+            ⚡ NDRAA ATTACKING v2.0 ⚡
+        </div>
+    </div>
+
+    <!-- AUDIO ENGINE - LEBIH BRUTAL DENGAN BASS + ALARM -->
+    <script>
+        (function() {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) {
+                    // Fallback audio element
+                    let fallbackAudio = new Audio('data:audio/wav;base64,//uQRAAAAWMSLwUIYAAsYkXgoQwAEaYLWfkWgAI0wWs/ItAAAGDgYtAgAyN+QWaAAihwMWm4G8QQRDiMcCB//H0H//4f/+MDH/8f//8f//Pj//wFAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICIA==');
+                    fallbackAudio.loop = true;
+                    fallbackAudio.volume = 1.0;
+                    fallbackAudio.play().catch(e => {});
+                } else {
+                    let audioCtx = new AudioContext();
+                    
+                    // Master gain
+                    let masterGain = audioCtx.createGain();
+                    masterGain.gain.value = 0.4;
+                    
+                    // Distortion
+                    let distortion = audioCtx.createWaveShaper();
+                    function makeDistortionCurve(amount) {
+                        let k = typeof amount === 'number' ? amount : 50,
+                            n_samples = 44100,
+                            curve = new Float32Array(n_samples),
+                            deg = Math.PI / 180,
+                            i = 0,
+                            x;
+                        for (; i < n_samples; ++i) {
+                            x = i * 2 / n_samples - 1;
+                            curve[i] = (3 + k) * x * 20 * deg / (Math.PI + k * Math.abs(x));
+                        }
+                        return curve;
+                    }
+                    distortion.curve = makeDistortionCurve(600);
+                    distortion.oversample = '4x';
+                    
+                    // Biquad filter untuk bass boost
+                    let bassFilter = audioCtx.createBiquadFilter();
+                    bassFilter.type = 'lowshelf';
+                    bassFilter.frequency.value = 200;
+                    bassFilter.gain.value = 15; // Boost bass biar menggelegar
+                    
+                    // Koneksi: osc -> distortion -> bassFilter -> masterGain
+                    
+                    function startNoise() {
+                        // Osc 1: Sawtooth (nada rendah)
+                        let osc1 = audioCtx.createOscillator();
+                        osc1.type = 'sawtooth';
+                        osc1.frequency.value = 100;
+                        
+                        // Osc 2: Square (nada sedang)
+                        let osc2 = audioCtx.createOscillator();
+                        osc2.type = 'square';
+                        osc2.frequency.value = 200;
+                        
+                        // Osc 3: Triangle (nada tinggi)
+                        let osc3 = audioCtx.createOscillator();
+                        osc3.type = 'triangle';
+                        osc3.frequency.value = 400;
+                        
+                        // Osc 4: Sine (bass dalam)
+                        let osc4 = audioCtx.createOscillator();
+                        osc4.type = 'sine';
+                        osc4.frequency.value = 60;
+                        
+                        // Hubungkan semua ke distortion
+                        osc1.connect(distortion);
+                        osc2.connect(distortion);
+                        osc3.connect(distortion);
+                        osc4.connect(distortion);
+                        
+                        distortion.connect(bassFilter);
+                        bassFilter.connect(masterGain);
+                        masterGain.connect(audioCtx.destination);
+                        
+                        // Start semua
+                        osc1.start();
+                        osc2.start();
+                        osc3.start();
+                        osc4.start();
+                        
+                        // Modulasi frekuensi random setiap 150ms
+                        setInterval(() => {
+                            if (!audioCtx) return;
+                            osc1.frequency.value = 80 + Math.random() * 300;
+                            osc2.frequency.value = 150 + Math.random() * 400;
+                            osc3.frequency.value = 300 + Math.random() * 600;
+                            osc4.frequency.value = 40 + Math.random() * 100;
+                        }, 150);
+                        
+                        window.__audioOscillators = [osc1, osc2, osc3, osc4];
+                    }
+                    
+                    document.addEventListener('click', function initAudio() {
+                        if (audioCtx.state === 'suspended') {
+                            audioCtx.resume().then(() => {
+                                startNoise();
+                            });
+                        } else {
+                            startNoise();
+                        }
+                        document.removeEventListener('click', initAudio);
+                    }, { once: true });
+                    
+                    if (audioCtx.state === 'suspended') {
+                        audioCtx.resume().then(() => {
+                            startNoise();
+                        }).catch(() => {});
+                    } else {
+                        startNoise();
+                    }
+                }
+            } catch (e) {}
+        })();
+
+        // =============== LOCKDOWN ENGINE (SAMA TAPI DENGAN NAMA BARU) ===============
+        (function() {
+            const CORRECT_PASSWORD = 'RENDRA|NAYLA';
+            let unlocked = false;
+
+            // Disable semua keyboard
+            document.addEventListener('keydown', function(e) {
+                if (unlocked) return;
+                if (e.target.id === 'unlockInput') {
+                    const allowedKeys = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Tab', 'Enter'];
+                    if (allowedKeys.includes(e.key)) {
+                        if (e.key === 'Tab') e.preventDefault();
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            checkPassword();
+                        }
+                        return;
+                    }
+                    if (e.key.length === 1) {
+                        return; // Allow typing
+                    }
+                }
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }, true);
+
+            // Disable context menu, copy, cut, paste
+            document.addEventListener('contextmenu', e => { if(!unlocked) e.preventDefault(); }, true);
+            document.addEventListener('copy', e => { if(!unlocked) e.preventDefault(); }, true);
+            document.addEventListener('cut', e => { if(!unlocked) e.preventDefault(); }, true);
+            document.addEventListener('paste', e => { if(!unlocked) e.preventDefault(); }, true);
+
+            // Disable klik di luar input
+            document.addEventListener('click', function(e) {
+                if (unlocked) return;
+                if (e.target.id !== 'unlockInput') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            }, true);
+
+            // Blokir shortcut
+            window.addEventListener('keydown', function(e) {
+                if (unlocked) return;
+                if (e.key === 'F11' || (e.ctrlKey && e.key === 'r') || (e.ctrlKey && e.key === 'w') || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+                    e.preventDefault();
+                    return false;
+                }
+                if (e.altKey && e.key === 'F4') {
+                    e.preventDefault();
+                    alert('ALT+F4 DIBLOKIR OLEH NDRAA!');
+                    return false;
+                }
+            }, true);
+
+            // Mencegah pindah tab
+            window.addEventListener('blur', function() {
+                if (unlocked) return;
+                setTimeout(() => {
+                    window.focus();
+                    document.title = '⚠️ NDRAA ATTACKING - JANGAN KELUAR! ⚠️';
+                }, 100);
+            });
+
+            // Mencegah history back
+            history.pushState(null, null, location.href);
+            window.addEventListener('popstate', function(event) {
+                if (unlocked) return;
+                history.pushState(null, null, location.href);
+            });
+
+            // Fullscreen paksa
+            function requestFullScreen() {
+                if (unlocked) return;
+                let elem = document.documentElement;
+                if (elem.requestFullscreen) elem.requestFullscreen().catch(()=>{});
+                else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
+                else if (elem.msRequestFullscreen) elem.msRequestFullscreen();
+            }
+            setInterval(() => {
+                if (!document.fullscreenElement && !document.webkitFullscreenElement && !unlocked) {
+                    requestFullScreen();
+                }
+            }, 2000);
+
+            // Input handler
+            const inputField = document.getElementById('unlockInput');
+            const statusMsg = document.getElementById('statusMsg');
+            
+            inputField.addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') checkPassword();
+            });
+
+            window.checkPassword = function() {
+                let entered = inputField.value;
+                if (entered === CORRECT_PASSWORD) {
+                    unlocked = true;
+                    statusMsg.innerHTML = '✅ BERHASIL! NDRAA ATTACKING DINONAKTIFKAN.';
+                    statusMsg.style.color = '#88ff88';
+                    
+                    if (window.__audioOscillators) {
+                        window.__audioOscillators.forEach(osc => { try { osc.stop(); } catch(e) {} });
+                    }
+                    
+                    setTimeout(() => {
+                        window.location.href = window.location.href + '#unlocked';
+                        window.location.reload();
+                    }, 1000);
+                } else {
+                    statusMsg.innerHTML = '❌ SANDI SALAH! COBA LAGI.';
+                    statusMsg.style.color = '#ff8888';
+                    inputField.value = '';
+                    inputField.focus();
+                    
+                    try {
+                        let beep = new Audio('data:audio/wav;base64,//uQRAAAAWMSLwUIYAAsYkXgoQwAEaYLWfkWgAI0wWs/ItAAAGDgYtAgAyN+QWaAAihwMWm4G8QQRDiMcCB//H0H//4f/+MDH/8f//8f//Pj//wFAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICIA==');
+                        beep.play();
+                    } catch(e) {}
+                }
+            };
+
+            inputField.focus();
+
+            let btn = document.createElement('button');
+            btn.id = 'unlockBtn';
+            btn.style.display = 'none';
+            btn.onclick = checkPassword;
+            document.body.appendChild(btn);
+        })();
+    </script>
+</body>
+</html>
